@@ -2,6 +2,7 @@ package com.example.pr_8.ViewModels;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.widget.Toast;
@@ -37,6 +38,13 @@ public class RegistrationViewPattern extends ViewModel {
                 exception.printStackTrace();
             }
         }
+    }
+
+    public void createSharedPreferences(Context context, String fileName, String fileContent) {
+        SharedPreferences settings = context.getSharedPreferences(fileName, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString( "savedData", fileContent);
+        editor.apply();
     }
 
 }

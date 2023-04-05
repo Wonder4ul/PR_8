@@ -57,12 +57,13 @@ public class RegistrationFragment extends Fragment {
         Button saveButton = view.findViewById(R.id.saveButton);
         saveButton.setOnClickListener(view1 -> {
             registrationView.createAppSpec(requireContext(), "RegistrationData",
-                    R.id.editTextTextPersonName + " " +
-                            R.id.editTextTextPersonName2);
+                    R.id.editTextTextPersonName + " " + R.id.editTextTextPersonName2);
 
             registrationView.createExternal(requireActivity(), "RegistrationData",
-                    R.id.editTextTextPersonName + " " +
-                            R.id.editTextTextPersonName2);
+                    R.id.editTextTextPersonName + " " + R.id.editTextTextPersonName2);
+
+            registrationView.createSharedPreferences(requireContext(), "RegistrationData",
+                    R.id.editTextTextPersonName + " " + R.id.editTextTextPersonName2);
         });
 
     }
