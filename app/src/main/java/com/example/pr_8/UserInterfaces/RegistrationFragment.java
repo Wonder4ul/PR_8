@@ -59,6 +59,10 @@ public class RegistrationFragment extends Fragment {
             registrationView.createAppSpec(requireContext(), "RegistrationData",
                     R.id.editTextTextPersonName + " " +
                             R.id.editTextTextPersonName2);
+
+            registrationView.createExternal(requireActivity(), "RegistrationData",
+                    R.id.editTextTextPersonName + " " +
+                            R.id.editTextTextPersonName2);
         });
 
     }
