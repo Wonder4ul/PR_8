@@ -11,7 +11,7 @@
     android:foregroundTint="#35737A"
     tools:context=".UserInterfaces.BookList">
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list"
+        android:id="@+id/list2"
         android:layout_width="0dp"
         android:layout_height="0dp"
 

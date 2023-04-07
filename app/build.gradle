@@ -42,4 +42,11 @@ dependencies {
     implementation "android.arch.navigation:navigation-ui:$nav_version"
     androidTestImplementation "android.arch.navigation:navigation-testing:$nav_version"
 
+
+
+    // Room components
+    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    annotationProcessor "androidx.room:room-compiler:$rootProject.roomVersion"
+    androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
+
 }

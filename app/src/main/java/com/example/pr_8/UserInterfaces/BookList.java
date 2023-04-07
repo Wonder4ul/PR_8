@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.pr_8.BookRecycleAdapter;
+import com.example.pr_8.ListAdapters.BookRecycleAdapter;
 import com.example.pr_8.R;
 import com.example.pr_8.ViewModels.BookViewPattern;
 
@@ -38,7 +38,7 @@ public class BookList extends Fragment {
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        RecyclerView recyclerView = view.findViewById(R.id.list);
+        RecyclerView recyclerView = view.findViewById(R.id.list2);
         String str = getArguments().getString("key1");
         Toast.makeText(getContext(), "Добро пожаловать, " + str, Toast.LENGTH_SHORT).show();
 
@@ -51,7 +51,7 @@ public class BookList extends Fragment {
         };
         BookRecycleAdapter adapter = new BookRecycleAdapter(getContext(), bookClickListener);
         recyclerView.setAdapter(adapter);
-        bookViewPattern.books.observe(getViewLifecycleOwner(), adapter::update);
+        bookViewPattern.mBooks.observe(getViewLifecycleOwner(), adapter::update);
     }
 
 
