@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -38,6 +39,15 @@ public class LibraryFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(this).get(BookViewPattern.class);
+        Intent intent = requireActivity().getIntent();
+        String action = intent.getAction();
+        String type = intent.getType();
+
+        if (Intent.ACTION_SEND.equals(action) && type != null) {
+            if ("text/*".equals(type)) {
+                ((TextView)getView().findViewById(R.id.textView)).setText(intent.getStringExtra(Intent.EXTRA_TEXT));
+            }
+        }
     }
 
     @Nullable
@@ -72,7 +82,5 @@ public class LibraryFragment extends Fragment {
                 e.getStackTrace();
             }});
 
-//        Button recieverButton = view.findViewById(R.id.data_recieve_button);
-//        recieverButton.setOnClickListener(view1 -> );
     }
 }
