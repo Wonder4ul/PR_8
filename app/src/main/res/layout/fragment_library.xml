@@ -10,15 +10,41 @@
     android:backgroundTint="#55C4D3"
     android:foregroundTint="#35737A"
     tools:context=".UserInterfaces.LibraryFragment">
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="550dp"
 
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list">
+
+        <Button
+            android:id="@+id/data_transfer_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/button_back"
+            android:text="Передать данные в приложение" />
+
+        <Button
+            android:id="@+id/data_recieve_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/button_back"
+            android:text="Получить данные из приложения" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,28 +13,22 @@ public class Book {
     private int image;
 
     public Book(String name, int image) {this.name = name; this.image = image;}
-
-    public Book() {
-    }
-
+    public Book() {}
     public int getImage() {
         return this.image;
     }
     public void setImage(int image) {
         this.image = image;
     }
-
     public String getName() {
         return this.name;
     }
     public void setName(String name) {
         this.name = name;
     }
-
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }

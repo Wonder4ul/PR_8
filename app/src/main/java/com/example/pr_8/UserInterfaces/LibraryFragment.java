@@ -1,10 +1,14 @@
 package com.example.pr_8.UserInterfaces;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -52,5 +56,23 @@ public class LibraryFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.list);
         recyclerView.setAdapter(bookRecycleAdapter);
         viewModel.mBooks.observe(getViewLifecycleOwner(), bookList -> bookRecycleAdapter.update(bookList));
+
+
+
+
+        Button transferButton = view.findViewById(R.id.data_transfer_button);
+        transferButton.setOnClickListener(view1 -> {
+            String cords = "88005553535";
+            Uri map = Uri.parse("sms:" + cords);
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, map);
+            mapIntent.putExtra(Intent.EXTRA_TEXT, "its easier to call than to borrow from someone");
+            try {
+                startActivity(mapIntent);
+            } catch (ActivityNotFoundException e) {
+                e.getStackTrace();
+            }});
+
+//        Button recieverButton = view.findViewById(R.id.data_recieve_button);
+//        recieverButton.setOnClickListener(view1 -> );
     }
 }

@@ -18,7 +18,6 @@ import java.util.concurrent.Executors;
 public abstract class DataBase extends RoomDatabase {
 
     public abstract BookDao bookDao();
-
     private static volatile DataBase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
     public static final ExecutorService databaseWriteExecutor =
@@ -42,7 +41,6 @@ public abstract class DataBase extends RoomDatabase {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
-
 
             databaseWriteExecutor.execute(() -> {
                 BookDao dao = INSTANCE.bookDao();

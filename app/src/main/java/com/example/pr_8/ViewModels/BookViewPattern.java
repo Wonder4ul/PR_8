@@ -15,16 +15,7 @@ import com.example.pr_8.UserInterfaces.LibraryFragment;
 import java.util.List;
 
 public class BookViewPattern extends ViewModel {
-//    public LiveData<List<BookInfo>> books;
-//
-//    public void init(){
-//        BookRepos repositBooks = new BookRepos();
-//        books = repositBooks.generateData();
-//    }
-//
-//    public BookViewPattern(){
-//        init();
-//    }
+
     public BookRepos mBookRepos;
     public LiveData<List<Book>> mBooks;
     public BookViewPattern(){
