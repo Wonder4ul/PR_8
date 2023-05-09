@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/frame_back"
-    tools:context="com.example.pr_71.UserInterfaces.RegistrationFragment">
+    tools:context="com.example.pr_8.UserInterfaces.RegistrationFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="409dp"

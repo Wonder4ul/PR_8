@@ -11,7 +11,11 @@
         tools:layout="@layout/fragment_initial" >
         <action
             android:id="@+id/action_blankFragment_to_blankFragment2"
-            app:destination="@id/blankFragment2" />
+            app:destination="@id/blankFragment2"
+            app:enterAnim="@anim/rise_f"
+            app:exitAnim="@anim/fade_f"
+            app:popEnterAnim="@anim/rise_b"
+            app:popExitAnim="@anim/fade_b"/>
         <action
             android:id="@+id/action_blankFragment_to_libraryFragment"
             app:destination="@id/libraryFragment" />
@@ -23,7 +27,12 @@
         tools:layout="@layout/fragment_registration" >
         <action
             android:id="@+id/action_blankFragment2_to_blankFragment3"
-            app:destination="@id/blankFragment3" />
+            app:destination="@id/blankFragment3"
+            app:enterAnim="@anim/rise_f"
+            app:exitAnim="@anim/fade_f"
+            app:popEnterAnim="@anim/rise_b"
+            app:popExitAnim="@anim/fade_b"
+            />
         <argument
             android:name="bookInfo"
             android:defaultValue="x" />
@@ -39,7 +48,12 @@
             android:defaultValue="Бодя" />
         <action
             android:id="@+id/action_blankFragment3_to_blankFragment4"
-            app:destination="@id/blankFragment4" />
+            app:destination="@id/blankFragment4"
+            app:enterAnim="@anim/rise_f"
+            app:exitAnim="@anim/fade_f"
+            app:popEnterAnim="@anim/rise_b"
+            app:popExitAnim="@anim/fade_b"
+            />
     </fragment>
     <fragment
         android:id="@+id/blankFragment4"
@@ -47,7 +61,12 @@
         android:label="BlankFragment4" >
         <action
             android:id="@+id/action_blankFragment4_to_libraryFragment"
-            app:destination="@id/libraryFragment" />
+            app:destination="@id/libraryFragment"
+            app:enterAnim="@anim/rise_f"
+            app:exitAnim="@anim/fade_f"
+            app:popEnterAnim="@anim/rise_b"
+            app:popExitAnim="@anim/fade_b"
+            />
     </fragment>
     <fragment
         android:id="@+id/libraryFragment"
