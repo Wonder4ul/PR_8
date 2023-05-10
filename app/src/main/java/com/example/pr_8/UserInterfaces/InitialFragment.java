@@ -1,6 +1,8 @@
 package com.example.pr_8.UserInterfaces;
 
 import android.annotation.SuppressLint;
+import android.graphics.drawable.Animatable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +21,7 @@ public class InitialFragment extends Fragment {
         super(R.layout.fragment_initial);
     }
 
-
+    private ImageView anim;
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -31,8 +33,11 @@ public class InitialFragment extends Fragment {
         Button buttonLib = view.findViewById(R.id.lib_button);
         buttonLib.setOnClickListener(view12 -> Navigation.findNavController(view12).navigate(R.id.action_blankFragment_to_libraryFragment));
 
-        ImageView image = view.findViewById(R.id.bookImage1);
-        image.setImageDrawable(getResources().getDrawable(R.drawable.book_svgrepo_com));
+        anim = view.findViewById(R.id.rotateAnimation);
+        Drawable drawable = anim.getDrawable();
+        if (drawable instanceof Animatable) {
+            ((Animatable) drawable).start();
+        }
 
     }
 }
