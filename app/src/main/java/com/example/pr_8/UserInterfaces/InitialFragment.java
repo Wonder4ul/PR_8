@@ -21,7 +21,7 @@ public class InitialFragment extends Fragment {
         super(R.layout.fragment_initial);
     }
 
-    private ImageView anim;
+    private ImageView rotateAnim;
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -33,11 +33,8 @@ public class InitialFragment extends Fragment {
         Button buttonLib = view.findViewById(R.id.lib_button);
         buttonLib.setOnClickListener(view12 -> Navigation.findNavController(view12).navigate(R.id.action_blankFragment_to_libraryFragment));
 
-        anim = view.findViewById(R.id.rotateAnimation);
-        Drawable drawable = anim.getDrawable();
-        if (drawable instanceof Animatable) {
-            ((Animatable) drawable).start();
-        }
-
+        rotateAnim = view.findViewById(R.id.rotateAnimation);
+        Drawable drawable = rotateAnim.getDrawable();
+        if (drawable instanceof Animatable) ((Animatable) drawable).start();
     }
 }
