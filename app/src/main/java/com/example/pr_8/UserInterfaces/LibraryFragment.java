@@ -24,6 +24,7 @@ import com.example.pr_8.MyResponse;
 import com.example.pr_8.PlaceAPI;
 import com.example.pr_8.PlacePost;
 import com.example.pr_8.R;
+import com.example.pr_8.Repositoryes.DataQuaryRepo;
 import com.example.pr_8.RetrofitFactory;
 import com.example.pr_8.ViewModels.BookViewPattern;
 
@@ -37,7 +38,6 @@ import retrofit2.Retrofit;
 
 
 public class LibraryFragment extends Fragment {
-    private final String URL_API = "https://jsonplaceholder.typicode.com/";
     private BookViewPattern viewModel;
     private BookViewPattern bookViewPattern;
 
@@ -78,14 +78,14 @@ public class LibraryFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.list);
         recyclerView.setAdapter(bookRecycleAdapter);
         viewModel.mBooks.observe(getViewLifecycleOwner(), bookList -> bookRecycleAdapter.update(bookList));
-
+        DataQuaryRepo dataQuary = new DataQuaryRepo();
 
         try {
-            setDataApi();
+            dataQuary.setDataApi(getContext());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        getDataFromApi(view);
+        dataQuary.getDataFromApi1(getContext());
 
 
         Button transferButton = view.findViewById(R.id.data_transfer_button);
@@ -100,81 +100,6 @@ public class LibraryFragment extends Fragment {
                 e.getStackTrace();
             }});
 
-    }
-    private void getDataFromApi(View view) {
-        Retrofit retrofit = RetrofitFactory.getRetrofit(URL_API);
-        PlaceAPI placeholderAPI = retrofit.create(PlaceAPI.class);
-        Call<List> call1 = placeholderAPI.getPosts();
-        Call<List> call2 = placeholderAPI.getComments();
-        call1.enqueue(new Callback<List>() {
-            @Override
-            public void onResponse(Call<List> call, Response<List> response) {
-                if (response.isSuccessful()) {
-                    List posts = response.body();
-                    Log.d("Success", posts.get(3).toString());
-                    TextView text = view.findViewById(R.id.textView5);
-                    text.setText(posts.get(3).toString());
-                }
-                else {
-                    Log.d("Hey", "Wow!");
-                    return;
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List> call, Throwable t) {
-                Log.d("Hey", "Error!");
-            }
-        });
-        call2.enqueue(new Callback<List>() {
-            @Override
-            public void onResponse(Call<List> call, Response<List> response) {
-                if (response.isSuccessful()) {
-                    List comments = response.body();
-                    Log.d("Success", comments.get(3).toString());
-                    TextView text = view.findViewById(R.id.textView6);
-                    text.setText(comments.get(3).toString());
-                }
-                else {
-                    Log.d("Hey", "Wow!");
-                    return;
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List> call, Throwable t) {
-                Log.d("Hey", "Error!");
-            }
-        });
-        Log.d("Hey", "Hello!");
-    }
-
-    private void setDataApi() throws IOException {
-        Retrofit retrofit = RetrofitFactory.getRetrofit(URL_API);
-        PlaceAPI api = retrofit.create(PlaceAPI.class);
-        PlacePost post = new PlacePost();
-        post.setUserID(123);
-        post.setId(34);
-        post.setBody("Hello, you there");
-        post.setTitle("title");
-        Call<MyResponse> call = api.request(post);
-        call.enqueue(new Callback<MyResponse>() {
-            @Override
-            public void onResponse(Call<MyResponse> call, Response<MyResponse> response) {
-                if (response.isSuccessful()) {
-                    Log.d("Successful", "Send data successful");
-                }
-                else {
-                    Log.d("Hey", "Wow!");
-                    return;
-                }
-            }
-
-            @Override
-            public void onFailure(Call<MyResponse> call, Throwable t) {
-
-            }
-        });
     }
 
 }
